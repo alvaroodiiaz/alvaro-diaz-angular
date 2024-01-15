@@ -1,0 +1,46 @@
+<div class="filter">
+  <h3 class="title-filter">Filtrador de Continentes por poblacion</h3>
+  <section class="input-filter">
+    <mat-form-field class="margin-input">
+      <mat-label>Población mínima</mat-label>
+      <input matInput type="number" placeholder="Población mínima" inputmode="numeric" pattern="[0-9]*" [(ngModel)]="minPopulation">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Población máxima</mat-label>
+      <input matInput type="number" placeholder="Población máxima" inputmode="numeric" pattern="[0-9]*" [(ngModel)]="maxPopulation">
+    </mat-form-field>
+
+    <button mat-button class="color" (click)="applyFilter()">Filtrar</button>
+    <button mat-icon-button aria-label="Example icon-button with share icon" (click)="deleteFilter()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </section>
+</div>
+
+<section class="chart-section">
+  <div class="chart-title">
+    <h2>Población por Continente</h2>
+    <section>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>info</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>Mapa Global</mat-card-title>
+            <mat-card-subtitle>Población</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="../../../assets/img/global.jpg" alt="Mapa Global">
+          <mat-card-content>
+            <p>
+              La poblacion global actualmente segun la API Rest Countries es de {{ totalPopulation }} habitantes
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-menu>
+  </section>
+  </div>
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" class="chart"></highcharts-chart>
+</section>

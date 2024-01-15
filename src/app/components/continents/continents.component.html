@@ -1,0 +1,47 @@
+<div class="filter">
+  <h3 class="title-filter">Filtrador de Paises por poblacion</h3>
+  <section class="input-filter">
+    <mat-form-field class="margin-input">
+      <input matInput type="number" placeholder="Población mínima" [(ngModel)]="minPopulation">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Población máxima" [(ngModel)]="maxPopulation">
+    </mat-form-field>
+    <button mat-button class="color" (click)="applyFilter()">Filtrar</button>
+    <button mat-icon-button (click)="deleteFilter()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </section>
+</div>
+
+<div class="chart-title">
+  <h2>Población de
+    {{this.continent ? this.continent.charAt(0).toUpperCase() + this.continent.slice(1) : 'Continente'}}</h2>
+  <section>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>info</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-title>Mapa de
+            {{this.continent ? this.continent.charAt(0).toUpperCase() + this.continent.slice(1) : 'Continente'}}
+          </mat-card-title>
+          <mat-card-subtitle>Población</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="continentImagePath" alt="Mapa de {{ continent }}">
+        <mat-card-content>
+          <p>
+            La poblacion de
+            {{this.continent ? this.continent.charAt(0).toUpperCase() + this.continent.slice(1) : 'Continente'}}
+            actualmente segun la API Rest Countries es de {{ continentPopulation }} habitantes
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-menu>
+  </section>
+</div>
+
+<highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" class="chart">
+</highcharts-chart>

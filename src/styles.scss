@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-menu-content.ng-tns-c2786309385-3{
+  padding: 0 !important;
+}
+
+.card {
+  max-width: 400px;
+}
+
+.header-image {
+  background-image: url(../../../assets/img/restcountries.png);
+  background-size: cover;
+}
+
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-filter{
+  margin-bottom: 0 !important;
+  margin-top: 1rem !important;
+}
+
+.input-filter{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.margin-input{
+  margin-right: 1rem;
+}
+
+.color{
+  color: #2caffe !important;
+}
+
+.chart-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.chart-title section{
+  margin-bottom: 1rem;
+}
+
+.chart-title mat-menu{
+  padding: 0;
+}
